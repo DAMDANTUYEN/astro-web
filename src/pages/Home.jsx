@@ -3,7 +3,7 @@ import Navbar from '../components/Navbar'
 import Hero from '../components/Hero'
 import PillarSection from '../components/PillarSection'
 import BortleSlider from '../components/BortleSlider'
-import StarField from '../components/StarField'
+import SpaceScene from '../components/SpaceScene'
 import Footer from '../components/Footer'
 import './Home.css'
 
@@ -17,7 +17,7 @@ export default function Home() {
 
   return (
     <div className="home">
-      <StarField bortle={bortle} />
+      <SpaceScene bortle={bortle} />
       <Navbar />
       <Hero />
       <PillarSection />
