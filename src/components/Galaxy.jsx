@@ -4,7 +4,7 @@ import * as THREE from 'three'
 import vertexShader from '../shaders/nebula.vert?raw'
 import fragmentShader from '../shaders/nebula.frag?raw'
 
-export default function Galaxy({ arms = 4, count = 60000, density = 1 }) {
+export default function Galaxy({ arms = 4, count = 40000, density = 1 }) {
   const ref = useRef()
 
   const { positions, randoms } = useMemo(() => {
@@ -13,10 +13,10 @@ export default function Galaxy({ arms = 4, count = 60000, density = 1 }) {
 
     for (let i = 0; i < count; i++) {
       const arm = (i % arms) * ((Math.PI * 2) / arms)
-      const radius = Math.pow(Math.random(), 0.4) * 500
-      const spin = radius * 0.005
-      const scatter = (Math.random() - 0.5) * radius * 0.3
-      const scatterZ = (Math.random() - 0.5) * 30
+      const radius = Math.pow(Math.random(), 0.4) * 300
+      const spin = radius * 0.008
+      const scatter = (Math.random() - 0.5) * radius * 0.25
+      const scatterZ = (Math.random() - 0.5) * 20
 
       pos[i * 3] = Math.cos(arm + spin) * radius + scatter
       pos[i * 3 + 1] = scatterZ

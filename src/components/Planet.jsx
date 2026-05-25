@@ -6,6 +6,7 @@ import atmosphereFrag from '../shaders/atmosphere.frag?raw'
 
 export default function Planet({ position: pos = [0, 0, 0], scale = 1 }) {
   const groupRef = useRef()
+  const baseY = pos[1]
 
   const atmosphereUniforms = useMemo(() => ({
     uAtmosphereColor: { value: new THREE.Color(0.3, 0.6, 1.0) },
@@ -14,7 +15,7 @@ export default function Planet({ position: pos = [0, 0, 0], scale = 1 }) {
 
   useFrame(({ clock }) => {
     if (groupRef.current) {
-      groupRef.current.position.y = pos[1] + Math.sin(clock.getElapsedTime() * 0.2) * 2
+      groupRef.current.position.y = baseY + Math.sin(clock.getElapsedTime() * 0.3) * 1.5
       groupRef.current.rotation.y = clock.getElapsedTime() * 0.05
     }
     atmosphereUniforms.uTime.value = clock.getElapsedTime()

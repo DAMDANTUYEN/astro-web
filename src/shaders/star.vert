@@ -25,12 +25,12 @@ void main() {
   mvPosition.xy /= stretch;
   mvPosition.z *= stretch;
 
-  float twinkle = 0.5 + 0.5 * sin(uTime * (1.5 + aPhase * 0.5) + aPhase * 6.28);
-  vBrightness = mix(0.3, 1.0, twinkle);
+  float twinkle = 0.4 + 0.6 * sin(uTime * (1.5 + aPhase * 0.5) + aPhase * 6.28);
+  vBrightness = twinkle;
 
   vColor = starColor(aColorTemp);
 
-  float sizeScale = uStarDensity;
-  gl_PointSize = aSize * uSize * (300.0 / -mvPosition.z) * sizeScale;
+  float pointSize = aSize * uSize * (800.0 / -mvPosition.z) * uStarDensity;
+  gl_PointSize = max(pointSize, 0.5);
   gl_Position = projectionMatrix * mvPosition;
 }

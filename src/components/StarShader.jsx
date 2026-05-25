@@ -15,7 +15,7 @@ const StarShader = forwardRef(function StarShader({ count = 12000, warpFactor = 
     const colorTemps = new Float32Array(count)
 
     for (let i = 0; i < count; i++) {
-      const radius = 100 + Math.random() * 2000
+      const radius = 20 + Math.random() * 400
       const theta = Math.random() * Math.PI * 2
       const phi = Math.acos(2 * Math.random() - 1)
 
@@ -23,7 +23,7 @@ const StarShader = forwardRef(function StarShader({ count = 12000, warpFactor = 
       positions[i * 3 + 1] = radius * Math.sin(phi) * Math.sin(theta)
       positions[i * 3 + 2] = radius * Math.cos(phi)
 
-      sizes[i] = 0.3 + Math.random() * 2.5
+      sizes[i] = 0.8 + Math.random() * 3.5
       phases[i] = Math.random() * Math.PI * 2
       colorTemps[i] = Math.random()
     }
@@ -33,7 +33,7 @@ const StarShader = forwardRef(function StarShader({ count = 12000, warpFactor = 
   const uniforms = useMemo(() => ({
     uTime: { value: 0 },
     uWarpFactor: { value: 0 },
-    uSize: { value: 1.2 },
+    uSize: { value: 2.5 },
     uStarDensity: { value: 1 },
   }), [])
 

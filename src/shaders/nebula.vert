@@ -6,8 +6,6 @@ attribute float aRandom;
 varying vec3 vColor;
 varying float vAlpha;
 
-float hash(float n) { return fract(sin(n) * 43758.5453); }
-
 void main() {
   vec3 pos = position;
 
@@ -24,6 +22,6 @@ void main() {
   );
 
   vec4 mvPos = modelViewMatrix * vec4(pos, 1.0);
-  gl_PointSize = (40.0 + r * 60.0) * (4.0 / -mvPos.z);
+  gl_PointSize = max((40.0 + r * 60.0) * (40.0 / -mvPos.z) * uStarDensity, 0.5);
   gl_Position = projectionMatrix * mvPos;
 }
