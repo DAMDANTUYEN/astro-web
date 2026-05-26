@@ -1,5 +1,5 @@
 {
-  "name": "astro-web",
+  "name": "dem-ngan-sao",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -12,11 +12,10 @@
   "dependencies": {
     "@react-three/drei": "^10.7.7",
     "@react-three/fiber": "^9.6.1",
-    "@react-three/postprocessing": "^3.0.4",
-    "postprocessing": "^6.39.1",
+    "@tailwindcss/vite": "^4.3.0",
     "react": "^19.2.6",
     "react-dom": "^19.2.6",
-    "react-router-dom": "^7.15.1",
+    "tailwindcss": "^4.3.0",
     "three": "^0.184.0"
   },
   "devDependencies": {

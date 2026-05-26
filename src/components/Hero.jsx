@@ -1,56 +1,46 @@
-import './Hero.css'
-
 export default function Hero() {
-  const scrollDown = () => {
-    const el = document.querySelector('#ve-chung-toi')
-    if (el) el.scrollIntoView({ behavior: 'smooth' })
-  }
-
   return (
-    <section id="hero" className="hero">
-      <div className="hero-bg-gradient" />
-
-      <div className="hero-orbs">
-        <div className="hero-orb orb-1" />
-        <div className="hero-orb orb-2" />
-        <div className="hero-orb orb-3" />
+    <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
+      <div className="absolute inset-0 -z-10">
+        <img
+          alt=""
+          className="w-full h-full object-cover object-center"
+          src="https://images.unsplash.com/photo-1519681393784-d120267933ba?w=1920&q=80"
+        />
+        <div className="absolute inset-0 bg-gradient-to-b from-deep-sea-void/80 via-deep-sea-void/30 to-deep-sea-void/90" />
+        <div className="absolute inset-0 bg-black/15" />
       </div>
 
-      <div className="hero-particles">
-        {[...Array(12)].map((_, i) => (
-          <span key={i} className="hero-particle" style={{
-            left: `${10 + Math.random() * 80}%`,
-            top: `${5 + Math.random() * 85}%`,
-            animationDelay: `${Math.random() * 5}s`,
-            animationDuration: `${4 + Math.random() * 4}s`,
-            width: `${2 + Math.random() * 4}px`,
-            height: `${2 + Math.random() * 4}px`,
-          }} />
-        ))}
-      </div>
+      <div className="relative text-center px-6 max-w-3xl pt-24 pb-20">
+        <div className="mb-5 flex items-center justify-center gap-3 text-nebular-glow/50 text-[11px] tracking-[0.3em] font-semibold uppercase">
+          <span className="block w-6 h-px bg-nebular-glow/25" />
+          Astro-Glamping & Healing
+          <span className="block w-6 h-px bg-nebular-glow/25" />
+        </div>
 
-      <div className="hero-content">
-        <div className="hero-badge">✦ ASTRO-GLAMPING & HEALING</div>
-        <h1 className="hero-slogan">
-          TẮT ĐÈN THÀNH PHỐ,<br />
-          <span className="hero-highlight">BẬT SÁNG NGÀN SAO</span>
+        <h1 className="font-display-vast text-[clamp(2rem,7vw,4rem)] text-white mb-5 leading-[1.15] tracking-tight">
+          TẮT ĐÈN THÀNH PHỐ<br />
+          <span className="text-nebular-glow/90">BẬT SÁNG NGÀN SAO</span>
         </h1>
-        <p className="hero-sub">
-          Hành trình Astro-Glamping & Chữa lành chuyên sâu đầu tiên tại Việt Nam
+
+        <p className="text-sm md:text-base text-white/45 max-w-md mx-auto mb-16 leading-relaxed">
+          Hành trình Astro-Glamping &amp; Chữa lành chuyên sâu đầu tiên tại Việt Nam.
         </p>
-        <button className="hero-cta" onClick={scrollDown}>
-          KHÁM PHÁ ĐÊM SIÊU THỰC
-          <svg width="20" height="20" viewBox="0 0 20 20" fill="none" className="hero-arrow">
-            <path d="M10 3v14M5 12l5 5 5-5" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        </button>
+
+        <a
+          href="#experiences"
+          className="inline-flex flex-col items-center gap-2 text-white/25 no-underline group"
+        >
+          <span className="text-[10px] tracking-[0.3em] font-semibold uppercase group-hover:text-white/50 transition-colors duration-300">
+            Khám phá
+          </span>
+          <span className="material-symbols-outlined text-xl leading-none group-hover:translate-y-0.5 transition-transform duration-300">
+            keyboard_double_arrow_down
+          </span>
+        </a>
       </div>
 
-      <button className="scroll-indicator" onClick={scrollDown} aria-label="Scroll down">
-        <span className="scroll-mouse">
-          <span className="scroll-dot" />
-        </span>
-      </button>
+      <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-deep-sea-void to-transparent pointer-events-none" />
     </section>
   )
 }

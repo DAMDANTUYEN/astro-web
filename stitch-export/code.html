@@ -1,0 +1,342 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="vi"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Astro-Glamping &amp; Healing | The Great Silence Awaits</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Sora:wght@300;400;600;800&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "outline-variant": "#424754",
+                    "on-primary": "#002e6a",
+                    "primary-fixed": "#d8e2ff",
+                    "on-tertiary-fixed": "#281900",
+                    "on-background": "#dce1fb",
+                    "outline": "#8c909f",
+                    "surface-container-low": "#151b2d",
+                    "secondary": "#cdbdff",
+                    "surface-tint": "#adc6ff",
+                    "primary-container": "#4d8eff",
+                    "nebular-glow": "#4DD0C8",
+                    "deep-sea-void": "#05070A",
+                    "on-secondary-fixed-variant": "#4f00d0",
+                    "on-surface-variant": "#c2c6d6",
+                    "on-primary-container": "#00285d",
+                    "on-tertiary": "#412d06",
+                    "on-error": "#690005",
+                    "inverse-on-surface": "#2a3043",
+                    "primary": "#adc6ff",
+                    "on-primary-fixed-variant": "#004395",
+                    "surface-dim": "#0c1324",
+                    "tertiary-fixed": "#ffdead",
+                    "surface-bright": "#33394c",
+                    "tertiary": "#e3c18e",
+                    "tertiary-container": "#aa8c5d",
+                    "on-surface": "#dce1fb",
+                    "inverse-primary": "#005ac2",
+                    "on-tertiary-container": "#3a2602",
+                    "surface": "#0c1324",
+                    "secondary-container": "#5203d5",
+                    "on-error-container": "#ffdad6",
+                    "surface-variant": "#2e3447",
+                    "error": "#ffb4ab",
+                    "surface-container": "#191f31",
+                    "on-secondary-fixed": "#20005f",
+                    "surface-container-lowest": "#070d1f",
+                    "tertiary-fixed-dim": "#e3c18e",
+                    "secondary-fixed-dim": "#cdbdff",
+                    "cosmic-dust": "#1E293B",
+                    "secondary-fixed": "#e8deff",
+                    "surface-container-highest": "#2e3447",
+                    "on-tertiary-fixed-variant": "#5a431b",
+                    "on-primary-fixed": "#001a42",
+                    "starlight-white": "#F8FAFC",
+                    "on-secondary-container": "#c0acff",
+                    "on-secondary": "#370096",
+                    "surface-container-high": "#23293c",
+                    "primary-fixed-dim": "#adc6ff",
+                    "inverse-surface": "#dce1fb",
+                    "background": "#0c1324",
+                    "error-container": "#93000a"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "gutter": "24px",
+                    "section-gap": "160px",
+                    "margin-desktop": "80px",
+                    "margin-mobile": "20px",
+                    "unit": "8px"
+            },
+            "fontFamily": {
+                    "display-vast": ["Sora"],
+                    "headline-lg": ["Sora"],
+                    "body-md": ["Inter"],
+                    "headline-lg-mobile": ["Sora"],
+                    "label-caps": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "display-vast": ["80px", {"lineHeight": "90px", "letterSpacing": "0.05em", "fontWeight": "300"}],
+                    "headline-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "0.02em", "fontWeight": "400"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "40px", "fontWeight": "400"}],
+                    "label-caps": ["12px", {"lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+        }
+        
+        .glass-card {
+            background: rgba(5, 7, 10, 0.4);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(248, FA, FC, 0.1);
+        }
+
+        .luminous-button {
+            background-color: #adc6ff; /* Galactic Blue mapped to primary */
+            color: #002e6a; /* on-primary */
+            box-shadow: 0 0 20px -5px #4DD0C8; /* nebular-glow */
+            transition: all 0.3s ease;
+        }
+
+        .luminous-button:hover {
+            transform: scale(0.95);
+            box-shadow: 0 0 30px -2px #4DD0C8;
+        }
+
+        .starfield {
+            background-image: 
+                radial-gradient(1px 1px at 20px 30px, #F8FAFC, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 40px 70px, #F8FAFC, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 50px 160px, #F8FAFC, rgba(0,0,0,0)),
+                radial-gradient(2px 2px at 90px 40px, #F8FAFC, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 130px 80px, #F8FAFC, rgba(0,0,0,0)),
+                radial-gradient(1px 1px at 160px 120px, #F8FAFC, rgba(0,0,0,0));
+            background-repeat: repeat;
+            background-size: 200px 200px;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+        .animate-float {
+            animation: float 4s ease-in-out infinite;
+        }
+
+        input[type=range]::-webkit-slider-thumb {
+            -webkit-appearance: none;
+            height: 20px;
+            width: 20px;
+            border-radius: 50%;
+            background: #4DD0C8;
+            box-shadow: 0 0 15px #4DD0C8;
+            cursor: pointer;
+            margin-top: -8px;
+        }
+
+        input[type=range]::-webkit-slider-runnable-track {
+            height: 4px;
+            background: #1E293B;
+            border-radius: 2px;
+        }
+    </style>
+</head>
+<body class="bg-deep-sea-void text-starlight-white font-body-md selection:bg-nebular-glow selection:text-deep-sea-void">
+<!-- TopNavBar -->
+<nav class="fixed top-0 z-50 flex justify-between items-center w-full px-margin-mobile md:px-margin-desktop py-6 bg-deep-sea-void/40 backdrop-blur-xl border-b border-starlight-white/10">
+<div class="font-display-vast text-headline-lg-mobile md:text-headline-lg text-nebular-glow">
+            Astro-Glamping &amp; Healing
+        </div>
+<div class="hidden md:flex items-center gap-10">
+<a class="text-nebular-glow border-b-2 border-nebular-glow pb-1 font-label-caps text-label-caps hover:text-nebular-glow transition-all duration-300 ease-in-out" href="#">VỀ CHÚNG TÔI</a>
+<a class="text-starlight-white/80 font-label-caps text-label-caps hover:text-nebular-glow transition-all duration-300 ease-in-out" href="#">LỊCH THIÊN VĂN 2026</a>
+<a class="text-starlight-white/80 font-label-caps text-label-caps hover:text-nebular-glow transition-all duration-300 ease-in-out" href="#">HÀNH TRÌNH</a>
+<a class="text-starlight-white/80 font-label-caps text-label-caps hover:text-nebular-glow transition-all duration-300 ease-in-out" href="#">THƯ VIỆN</a>
+</div>
+<button class="luminous-button px-6 py-3 rounded-full font-label-caps text-label-caps tracking-widest active:scale-95 duration-150">
+            ĐẶT VÉ VÀO VŨ TRỤ
+        </button>
+</nav>
+<!-- Hero Section -->
+<section class="relative h-screen w-full flex flex-col items-center justify-center overflow-hidden">
+<div class="absolute inset-0 z-0">
+<img alt="Cosmic landscape" class="w-full h-full object-cover opacity-60" data-alt="A breathtaking cinematic wide-angle view of the Milky Way galaxy stretching across a deep indigo sky above a jagged silhouette of mountain peaks. The scene is illuminated by trillions of distant stars and nebula dust in shades of teal, violet, and silver, creating an atmosphere of profound silence and cosmic awe. The lighting is ethereal and nocturnal, emphasizing the vastness of the universe in a luxury glassmorphic minimalist style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuARYZKDGs42GLRLPipuDStBzKPWEjE8b_nob5KaghK4ipmCAzrC33B02fGHQGwKKRCRjuIeHcK62uFYXdAiqIxqsooQOUMPsIWGIpjCMpqHWZAKEj_G_e6z_3_sutofcfMOb15RRf2veh9jPTg9uyyXL5itbY37knuhh_JApmL8Ldm11wb8rOId_4rDt6GVWgZu6z2UlxAIBsd9EW_gTdsRsuCjrNdO30NZElaHcS9626XFIbnoLW4rXSFxNFQt-2TJEVy0N__SwHg"/>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-deep-sea-void/20 to-deep-sea-void"></div>
+</div>
+<div class="relative z-10 text-center px-4 max-w-5xl">
+<h1 class="font-display-vast text-headline-lg-mobile md:text-display-vast text-starlight-white mb-6 uppercase tracking-tighter">
+                &gt; TẮT ĐÈN THÀNH PHỐ,<br/>BẬT SÁNG NGÀN SAO
+            </h1>
+<p class="font-body-md text-starlight-white/70 max-w-2xl mx-auto mb-12">
+                Hành trình Astro-Glamping &amp; Chữa lành chuyên sâu đầu tiên tại Việt Nam. Tìm lại sự cân bằng giữa lòng vũ trụ tĩnh lặng.
+            </p>
+<a class="animate-float flex flex-col items-center gap-4 text-nebular-glow no-underline group" href="#experiences">
+<span class="font-label-caps text-label-caps tracking-widest group-hover:text-starlight-white transition-colors">[ KHÁM PHÁ ĐÊM SIÊU THỰC ⬇️ ]</span>
+<span class="material-symbols-outlined text-4xl">keyboard_double_arrow_down</span>
+</a>
+</div>
+</section>
+<!-- Experience Sections -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop relative overflow-hidden" id="experiences">
+<div class="grid grid-cols-1 md:grid-cols-3 gap-gutter relative z-10">
+<!-- Astro Card -->
+<div class="glass-card p-10 rounded-xl group hover:-translate-y-4 transition-all duration-500 hover:border-nebular-glow/40 cursor-pointer">
+<div class="w-16 h-16 rounded-full bg-nebular-glow/10 flex items-center justify-center mb-8 group-hover:bg-nebular-glow/20 transition-colors">
+<span class="material-symbols-outlined text-nebular-glow text-4xl" data-icon="telescope">satellite</span>
+</div>
+<h3 class="font-headline-lg-mobile md:text-headline-lg font-headline-lg text-starlight-white mb-4">ASTRO</h3>
+<p class="text-on-surface-variant font-body-md leading-relaxed">
+                    Khám phá chiều sâu của dải Ngân Hà qua hệ thống kính viễn vọng chuyên dụng. Giải mã những chòm sao xa xôi cùng chuyên gia thiên văn.
+                </p>
+<div class="mt-8 flex items-center gap-2 text-nebular-glow font-label-caps text-label-caps">
+                    XEM LỊCH SAO <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+<!-- Glamping Card -->
+<div class="glass-card p-10 rounded-xl group hover:-translate-y-4 transition-all duration-500 hover:border-nebular-glow/40 cursor-pointer">
+<div class="w-16 h-16 rounded-full bg-nebular-glow/10 flex items-center justify-center mb-8 group-hover:bg-nebular-glow/20 transition-colors">
+<span class="material-symbols-outlined text-nebular-glow text-4xl" data-icon="travel_explore">travel_explore</span>
+</div>
+<h3 class="font-headline-lg-mobile md:text-headline-lg font-headline-lg text-starlight-white mb-4">GLAMPING</h3>
+<p class="text-on-surface-variant font-body-md leading-relaxed">
+                    Nghỉ dưỡng trong lều Bubble xuyên thấu giữa sa mạc cát Mũi Dinh. Tiện nghi 5 sao hòa quyện trọn vẹn vào thiên nhiên hoang sơ.
+                </p>
+<div class="mt-8 flex items-center gap-2 text-nebular-glow font-label-caps text-label-caps">
+                    KHÁM PHÁ LỀU <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+<!-- Healing Card -->
+<div class="glass-card p-10 rounded-xl group hover:-translate-y-4 transition-all duration-500 hover:border-nebular-glow/40 cursor-pointer">
+<div class="w-16 h-16 rounded-full bg-nebular-glow/10 flex items-center justify-center mb-8 group-hover:bg-nebular-glow/20 transition-colors">
+<span class="material-symbols-outlined text-nebular-glow text-4xl" data-icon="self_improvement">self_improvement</span>
+</div>
+<h3 class="font-headline-lg-mobile md:text-headline-lg font-headline-lg text-starlight-white mb-4">HEALING</h3>
+<p class="text-on-surface-variant font-body-md leading-relaxed">
+                    Liệu pháp âm thanh với chuông xoay Tây Tạng và thiền định dưới bầu trời sao. Kết nối lại với bản ngã trong sự tĩnh lặng tuyệt đối.
+                </p>
+<div class="mt-8 flex items-center gap-2 text-nebular-glow font-label-caps text-label-caps">
+                    HÀNH TRÌNH TÂM TRÍ <span class="material-symbols-outlined text-sm">arrow_forward</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Interactive Bortle Scale Feature -->
+<section class="py-section-gap relative flex items-center justify-center transition-colors duration-1000 overflow-hidden" id="bortle-interact" style="background-color: #0c1324;">
+<!-- Dynamic Star Overlay -->
+<div class="absolute inset-0 starfield opacity-10 transition-opacity duration-1000 pointer-events-none" id="star-overlay"></div>
+<div class="relative z-10 w-full max-w-4xl px-margin-mobile flex flex-col items-center">
+<h2 class="font-headline-lg-mobile md:text-headline-lg text-starlight-white mb-16 text-center">
+                TRẢI NGHIỆM ĐỘ TỐI BORTLE
+            </h2>
+<div class="w-full glass-card p-12 rounded-full border-starlight-white/5">
+<div class="flex justify-between mb-8 font-label-caps text-label-caps text-starlight-white/60">
+<span class="flex flex-col items-start gap-1" id="label-left">
+<span class="text-on-surface-variant">Thành Phố</span>
+<span class="text-nebular-glow text-lg">Bortle 9</span>
+</span>
+<span class="flex flex-col items-end gap-1" id="label-right">
+<span class="text-on-surface-variant">Mũi Dinh</span>
+<span class="text-nebular-glow text-lg">Bortle 2</span>
+</span>
+</div>
+<input class="w-full appearance-none bg-transparent cursor-pointer" id="bortle-slider" max="100" min="0" type="range" value="0"/>
+<p class="mt-12 text-center font-body-md text-starlight-white/50 italic" id="bortle-description">
+                    "Tại thành phố, ánh sáng nhân tạo che khuất 95% vẻ đẹp của vũ trụ."
+                </p>
+</div>
+</div>
+</section>
+<!-- Bento Gallery Section (Bonus for Premium feel) -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-[800px]">
+<div class="md:col-span-2 md:row-span-2 glass-card rounded-xl overflow-hidden relative group">
+<img alt="Bubble tent" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A luxurious glass-walled bubble tent situated in a remote, dark-sky coastal desert landscape of Mũi Dinh. Inside, a comfortable bed is visible under the panoramic transparent dome, allowing guests to watch the stars from within. The lighting is warm and dim inside the tent, contrasting with the cool, deep blues and glowing nebulae of the star-filled night sky outside. High-end glamping aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC7kN4TzBjPDus_DwOHJ25ccYMNrO3Flts4zcouO13zLBUiyOuLTo2HewsFTCTni5tAhqPtnf-l9aCymUrAft5goDWi5jEWKE-_328YIBMrnr1aUWeyfyV66cilNz5_94iYqDjkSBlisPvtcMNf0OWlmJKm9q3kaLgRzczv3ZgXPVRR7Ph9U3or3Nb2aLjh-Bwtl5JbkBMtDG1t0HiwEn9G0LVnff-JLq1oHE_vsHR1REbMyPHM_LepIFNOohWzBozLp4gQdzJYogY"/>
+<div class="absolute bottom-0 left-0 p-8 bg-gradient-to-t from-deep-sea-void to-transparent w-full">
+<span class="font-label-caps text-label-caps text-nebular-glow">TRẢI NGHIỆM ĐỘC BẢN</span>
+<h4 class="text-2xl mt-2">Phòng Ngủ Dưới Ngàn Sao</h4>
+</div>
+</div>
+<div class="md:col-span-2 glass-card rounded-xl overflow-hidden relative group">
+<img alt="Healing session" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A serene healing retreat session occurring at twilight on a dark beach. A group of people is sitting in a circle around a glowing fire pit, with large Tibetan singing bowls placed in front of them. The silhouettes are outlined by the soft warm orange of the fire and the deep navy blue of the approaching night. The atmosphere is mystical, calm, and deeply spiritual, focused on ancient healing traditions." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDr1z_mJn23dGfQs1GaofRf-c9JP4jM88i5g-fOFB5nrKi5hkNmMsGwLBOVT0fC_bU6D98SM38Ppx9YHBmNp5DvDUYnlyUlILwUuTL2CNSTZ7uK6wxkeRMtZTivIIuA3qGACJXtf7ktIG8maPWurOK1xo0xVqSZIxwfsG-2ZDVyGXK92z1SM7-cFKvzpP8LIMhBmzppuGqR8kCY6I1V32nwa6M4i2qDSK7XrCjuT6-nu_UUnWjAUVk6RcqqZ0N6Q5aFiFLlZkO8LCI"/>
+<div class="absolute inset-0 bg-nebular-glow/10 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="glass-card rounded-xl overflow-hidden relative group">
+<img alt="Star trails" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A long-exposure photograph capturing vibrant star trails rotating around the Polaris star, creating circular patterns across a deep midnight sky. Below, the faint outline of the coastal cliffs at Mũi Dinh provides a sense of scale. The colors are deep violets and electrical blues, creating a sense of celestial movement and the passage of time in the silent cosmos." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD9Y5n0as5s8wD30b4-0glLMOwkT2ezd5WoSw39cuxIvWOLparqqjTDjP_5TgBGEG4afDQpTLn7k1WU_gYPF9W1kOh_HC8fDPGUW2Vj3ZzHZiRSDdgaBONG-sK2uwduHEDZcJ22JS5ENeJACxCCbh2Al0AuDbZ7qw2TKQvywUswvohEsCKA-648vgzJIZHqkoJb5VPFMfSBsBrUGkRmDfbWf3rtg4Wa03RNfBS1dmtbktnBTw5rU4-1tOYcoVvYWE0k1D3GDIMqR9M"/>
+</div>
+<div class="glass-card rounded-xl overflow-hidden relative group">
+<img alt="Telescope" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A professional carbon-fiber astronomical telescope mounted on a tripod, positioned on a wooden deck overlooking a vast dark horizon. The telescope is pointed toward a glowing nebula in the sky. The lighting is low-key, with thin starlight edge highlights on the equipment, emphasizing a high-tech yet organic connection to the stars. Modern Astro-minimalist design." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDyY85ytihm7vkGu-2yM1v_uvy67tikdaRNx313fFegemVXC10D8uu1TT_lXgH_cs_q8xFAaNt9U8s4KN89Aj55RtmhQGUo1DAsI6mU_HW21Pc2WHwG3F2q5wu54WJxXEJiDp4R4Mzl4O4QfP7Cx4ICBFT2DYcavbcSO6gSXjN9cfAWI9Jag0XcMtRw1M5hau07hYefnjRV4tFBZaTt8wMEDj1lyVSdJ-h3iksQpPDmqImhRfPYufdwEo-eitKX7Q1wOLdhO7sbxXQ"/>
+</div>
+</div>
+</section>
+<!-- Footer -->
+<footer class="w-full bg-deep-sea-void px-margin-mobile md:px-margin-desktop py-unit-gutter border-t border-starlight-white/10">
+<div class="flex flex-col md:flex-row justify-between items-center w-full gap-gutter">
+<div class="font-display-vast text-nebular-glow text-headline-lg">
+                Astro-Glamping &amp; Healing
+            </div>
+<div class="flex gap-8">
+<a class="text-on-surface-variant hover:text-nebular-glow hover:scale-105 transition-transform font-label-caps text-label-caps" href="#">CHÍNH SÁCH</a>
+<a class="text-on-surface-variant hover:text-nebular-glow hover:scale-105 transition-transform font-label-caps text-label-caps" href="#">LIÊN HỆ</a>
+<a class="text-on-surface-variant hover:text-nebular-glow hover:scale-105 transition-transform font-label-caps text-label-caps" href="#">BẢN ĐỒ SAO</a>
+</div>
+<div class="font-body-md text-body-md text-on-surface-variant text-center md:text-right">
+                © 2024 ASTRO-GLAMPING &amp; HEALING. THE GREAT SILENCE AWAITS.
+            </div>
+</div>
+</footer>
+<script>
+        // Bortle Slider Interaction
+        const slider = document.getElementById('bortle-slider');
+        const section = document.getElementById('bortle-interact');
+        const starOverlay = document.getElementById('star-overlay');
+        const description = document.getElementById('bortle-description');
+
+        slider.addEventListener('input', (e) => {
+            const val = e.target.value;
+            
+            // Adjust Background Color (City #0c1324 to Deep Void #000000)
+            const darkness = 12 - (val * 0.12);
+            section.style.backgroundColor = `rgb(${darkness}, ${darkness + 7}, ${darkness + 20})`;
+            
+            // Adjust Star Visibility
+            starOverlay.style.opacity = val / 100;
+            
+            // Text feedback
+            if (val < 25) {
+                description.textContent = '"Tại thành phố, ánh sáng nhân tạo che khuất 95% vẻ đẹp của vũ trụ."';
+            } else if (val < 75) {
+                description.textContent = '"Khi ánh đèn lùi xa, dải Ngân Hà bắt đầu lộ diện như một dải lụa mờ ảo."';
+            } else {
+                description.textContent = '"Tại Mũi Dinh, bạn sẽ thấy bóng mình đổ dưới ánh sáng của chính những vì sao."';
+            }
+        });
+
+        // Smooth scroll for anchors
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+    </script>
+</body></html>

@@ -1,69 +1,111 @@
-import './BortleSlider.css'
+import { useRef, useCallback } from 'react'
 
-const labels = [
-  { value: 10, label: 'Thành Phố', bortle: 'Bortle 9' },
-  { value: 30, label: 'Ngoại Ô', bortle: 'Bortle 7' },
-  { value: 50, label: 'Làng Quê', bortle: 'Bortle 5' },
-  { value: 70, label: 'Vùng Trống', bortle: 'Bortle 4' },
-  { value: 90, label: 'Mũi Dinh', bortle: 'Bortle 2' },
+const descriptions = [
+  '"Tại thành phố, ánh sáng nhân tạo che khuất 95% vẻ đẹp của vũ trụ."',
+  '"Khi ánh đèn lùi xa, dải Ngân Hà bắt đầu lộ diện như một dải lụa mờ ảo."',
+  '"Tại Mũi Dinh, bạn sẽ thấy bóng mình đổ dưới ánh sáng của chính những vì sao."',
 ]
 
-export default function BortleSlider({ value, onChange }) {
-  const currentLabel = [...labels].reverse().find((l) => value >= l.value) || labels[0]
+export default function BortleSlider({ value = 0, onChange }) {
+  const sectionRef = useRef(null)
+
+  const handleInput = useCallback(
+    (e) => {
+      const val = Number(e.target.value)
+      onChange(val)
+      if (sectionRef.current) {
+        const d = 12 - val * 0.12
+        sectionRef.current.style.backgroundColor = `rgb(${d + 2}, ${d + 6}, ${d + 18})`
+      }
+    },
+    [onChange]
+  )
+
+  const label = () => {
+    if (value < 25) return 'Bortle 9'
+    if (value < 50) return 'Bortle 6'
+    if (value < 75) return 'Bortle 4'
+    return 'Bortle 2'
+  }
 
   return (
-    <section id="bortle" className="bortle-section">
-      <div className="bortle-inner">
-        <div className="bortle-header">
-          <span className="bortle-tag">✦ TƯƠNG TÁC ĐẶC BIỆT</span>
-          <h2 className="bortle-title">
-            Kéo để <span className="bortle-highlight">thay đổi</span> bầu trời
+    <section
+      ref={sectionRef}
+      id="bortle"
+      className="relative py-28 md:py-36 px-6 md:px-10 lg:px-16 transition-colors duration-700 overflow-hidden"
+      style={{ backgroundColor: '#0e1628' }}
+    >
+      <div className="absolute top-0 left-0 right-0 h-24 bg-gradient-to-b from-deep-sea-void to-transparent pointer-events-none z-10" />
+
+      <div
+        className="absolute inset-0 pointer-events-none transition-opacity duration-700"
+        style={{
+          opacity: value / 100 * 0.12,
+          backgroundImage: `
+            radial-gradient(1px 1px at 10% 20%, #fff, transparent),
+            radial-gradient(1px 1px at 30% 50%, #fff, transparent),
+            radial-gradient(2px 2px at 55% 30%, #fff, transparent),
+            radial-gradient(1px 1px at 70% 70%, #fff, transparent),
+            radial-gradient(1px 1px at 85% 15%, #fff, transparent),
+            radial-gradient(2px 2px at 15% 80%, #fff, transparent),
+            radial-gradient(1px 1px at 45% 90%, #fff, transparent),
+            radial-gradient(1px 1px at 90% 55%, #fff, transparent)
+          `,
+          backgroundSize: '200px 200px',
+          backgroundRepeat: 'repeat',
+        }}
+      />
+
+      <div className="max-w-7xl mx-auto relative z-10">
+        <div className="text-center mb-16">
+          <h2 className="font-display-vast text-2xl md:text-4xl text-white tracking-wide">
+            Thang Đo Bortle
           </h2>
-          <p className="bortle-desc">
-            Trải nghiệm sự khác biệt giữa bầu trời thành phố ô nhiễm ánh sáng và bầu trời đạt chuẩn quốc tế tại Mũi Dinh.
-          </p>
-        </div>
-
-        <div className="bortle-display">
-          <span className="bortle-current-label">{currentLabel.label}</span>
-          <span className="bortle-current-bortle">{currentLabel.bortle}</span>
-        </div>
-
-        <div className="bortle-track-wrapper">
-          <div className="bortle-labels">
-            <span className="bortle-end-label">Thành Phố<br /><small>Bortle 9</small></span>
-            <span className="bortle-end-label">Mũi Dinh<br /><small>Bortle 2</small></span>
+          <div className="mt-5 flex items-center justify-center gap-2">
+            <span className="block w-6 h-px bg-white/10" />
+            <span className="block w-1.5 h-1.5 rounded-full bg-nebular-glow/40" />
+            <span className="block w-6 h-px bg-white/10" />
           </div>
-          <div className="bortle-track">
-            <div className="bortle-track-fill" style={{ width: `${value}%` }} />
+        </div>
+
+        <div className="max-w-lg mx-auto">
+          <div className="bg-white/[0.02] border border-white/[0.06] rounded-2xl p-8 md:p-10">
+            <div className="flex items-center justify-between mb-6 text-center">
+              <div>
+                <div className="text-[10px] tracking-[0.15em] text-white/25 font-semibold uppercase">Thành phố</div>
+                <div className="text-sm font-semibold text-red-400/70 mt-0.5">Bortle 9</div>
+              </div>
+              <div className="text-white/15 text-sm">→</div>
+              <div>
+                <div className="text-[10px] tracking-[0.15em] text-white/25 font-semibold uppercase">Mũi Dinh</div>
+                <div className="text-sm font-semibold text-nebular-glow/70 mt-0.5">Bortle 2</div>
+              </div>
+            </div>
+
+            <div className="text-center text-xs text-white/40 font-semibold mb-4">{label()}</div>
+
             <input
               type="range"
               min="0"
               max="100"
               value={value}
-              onChange={(e) => onChange(Number(e.target.value))}
-              className="bortle-input"
+              onInput={handleInput}
+              className="w-full appearance-none bg-transparent cursor-pointer"
             />
-            <div className="bortle-thumb" style={{ left: `${value}%` }} />
-          </div>
-          <div className="bortle-labels">
-            <span className="bortle-end-label">Ô nhiễm<br /><small>Ánh sáng cao</small></span>
-            <span className="bortle-end-label">Tối chuẩn<br /><small>Quốc tế</small></span>
-          </div>
-        </div>
 
-        <div className="bortle-info">
-          <div className="bortle-info-item">
-            <span className="bortle-info-icon">🌆</span>
-            <span>Ánh sáng nhân tạo che lấp hoàn toàn các vì sao</span>
-          </div>
-          <div className="bortle-info-arrow">→</div>
-          <div className="bortle-info-item">
-            <span className="bortle-info-icon">🌌</span>
-            <span>Dải Ngân hà rực rỡ hiện ra bằng mắt thường</span>
+            <div className="mt-2 flex justify-between text-[9px] text-white/15">
+              <span>Ô nhiễm cao</span>
+              <span>Trời tối lý tưởng</span>
+            </div>
+
+            <p className="mt-8 text-center text-sm text-white/35 italic leading-relaxed">
+              {descriptions[value < 25 ? 0 : value < 75 ? 1 : 2]}
+            </p>
           </div>
         </div>
       </div>
+
+      <div className="absolute bottom-0 left-0 right-0 h-24 bg-gradient-to-t from-deep-sea-void to-transparent pointer-events-none z-10" />
     </section>
   )
 }

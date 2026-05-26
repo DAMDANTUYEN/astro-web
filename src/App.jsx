@@ -1,14 +1,27 @@
-import { Routes, Route } from 'react-router-dom'
-import Home from './pages/Home'
-import Booking from './pages/Booking'
-import './App.css'
+import { useState } from 'react'
+import Navbar from './components/Navbar'
+import Hero from './components/Hero'
+import ExperienceCards from './components/ExperienceCards'
+import BortleSlider from './components/BortleSlider'
+import BentoGallery from './components/BentoGallery'
+import Footer from './components/Footer'
+import Starfield from './components/Starfield'
 
 function App() {
+  const [bortleValue, setBortleValue] = useState(0)
+
   return (
-    <Routes>
-      <Route path="/" element={<Home />} />
-      <Route path="/dat-ve" element={<Booking />} />
-    </Routes>
+    <div className="relative min-h-screen bg-deep-sea-void">
+      <Starfield opacity={bortleValue / 100} />
+      <div className="relative z-10">
+        <Navbar />
+        <Hero />
+        <ExperienceCards />
+        <BortleSlider value={bortleValue} onChange={setBortleValue} />
+        <BentoGallery />
+        <Footer />
+      </div>
+    </div>
   )
 }
 
