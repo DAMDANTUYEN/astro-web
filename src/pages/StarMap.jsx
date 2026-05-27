@@ -1,4 +1,4 @@
-import { useState, useMemo, useRef } from 'react'
+import { useState, useMemo, useRef, useEffect } from 'react'
 import { MapContainer, TileLayer, CircleMarker, ZoomControl } from 'react-leaflet'
 import 'leaflet/dist/leaflet.css'
 import { Icon } from '@iconify/react'
@@ -128,6 +128,8 @@ export default function StarMap() {
   const [selected, setSelected] = useState(null)
   const [search, setSearch] = useState('')
   const listRef = useRef(null)
+  const mobileMapRef = useRef(null)
+  const desktopMapRef = useRef(null)
 
   const filtered = useMemo(() => {
     let list = starLocations
@@ -142,6 +144,17 @@ export default function StarMap() {
     }
     return sortByBortle(list)
   }, [regionFilter, maxBortle, search])
+
+  useEffect(() => {
+    if (!selected) return
+    const map = window.innerWidth < 1024 ? mobileMapRef.current : desktopMapRef.current
+    if (!map || !map.fire) return
+    try {
+      map.flyTo([selected.lat, selected.lng], 9, { duration: 1.2 })
+    } catch (e) {
+      console.warn('flyTo failed', e)
+    }
+  }, [selected])
 
   const handleSelect = (loc) => {
     setSelected(selected?.id === loc.id ? null : loc)
@@ -179,6 +192,7 @@ export default function StarMap() {
         <div className="lg:hidden px-5 mb-4">
           <div className="rounded-2xl overflow-hidden border border-white/10 relative z-0" style={{ height: 280 }}>
             <MapContainer
+              ref={mobileMapRef}
               center={VIETNAM_CENTER}
               zoom={DEFAULT_ZOOM}
               zoomControl={false}
@@ -311,6 +325,7 @@ export default function StarMap() {
               <div className="hidden lg:flex flex-col gap-4">
                 <div className="rounded-2xl overflow-hidden border border-white/10 relative z-0" style={{ height: 'clamp(400px, 55vh, 600px)' }}>
                   <MapContainer
+                    ref={desktopMapRef}
                     center={VIETNAM_CENTER}
                     zoom={DEFAULT_ZOOM}
                     zoomControl={false}
