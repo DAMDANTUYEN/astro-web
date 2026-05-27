@@ -1,61 +1,54 @@
 @import "tailwindcss";
 
 @theme {
-  /* Colors - Stitch Design System */
-  --color-deep-sea-void: #05070A;
-  --color-starlight-white: #F8FAFC;
-  --color-nebular-glow: #4DD0C8;
-  --color-cosmic-dust: #1E293B;
-  --color-surface: #0c1324;
-  --color-surface-dim: #0c1324;
-  --color-surface-bright: #33394c;
-  --color-surface-container-lowest: #070d1f;
-  --color-surface-container-low: #151b2d;
-  --color-surface-container: #191f31;
-  --color-surface-container-high: #23293c;
-  --color-surface-container-highest: #2e3447;
-  --color-on-surface: #dce1fb;
-  --color-on-surface-variant: #c2c6d6;
-  --color-primary: #adc6ff;
-  --color-on-primary: #002e6a;
-  --color-secondary: #cdbdff;
-  --color-tertiary: #e3c18e;
-  --color-outline: #8c909f;
-  --color-outline-variant: #424754;
+  /* Luxury Gold Design System */
+  --color-bg-deep-navy: #090d1a;
+  --color-bg-black-void: #05070A;
+  --color-gold-primary: #c9973a;
+  --color-gold-light: #e8c79a;
+  --color-cream-white: #f5f0e8;
 
   /* Font Families */
-  --font-display-vast: "Sora", sans-serif;
-  --font-headline-lg: "Sora", sans-serif;
-  --font-body-md: "Inter", sans-serif;
-  --font-label-caps: "JetBrains Mono", monospace;
+  --font-display-serif: "Playfair Display", serif;
+  --font-script: "Great Vibes", cursive;
+  --font-body: "Raleway", sans-serif;
 
-  /* Text Sizes - Display Vast */
-  --text-display-vast: 80px;
-  --text-display-vast--line-height: 90px;
-  --text-display-vast--letter-spacing: 0.05em;
-  --text-display-vast--font-weight: 300;
+  /* Text Sizes - Display Hero */
+  --text-display-hero: clamp(2.8rem, 8vw, 5.5rem);
+  --text-display-hero--line-height: 1.15;
+  --text-display-hero--letter-spacing: 0.01em;
+  --text-display-hero--font-weight: 600;
 
-  /* Text Sizes - Headline LG */
-  --text-headline-lg: 48px;
-  --text-headline-lg--line-height: 56px;
-  --text-headline-lg--letter-spacing: 0.02em;
-  --text-headline-lg--font-weight: 400;
+  /* Text Sizes - Heading */
+  --text-heading: clamp(1.8rem, 5vw, 3.2rem);
+  --text-heading--line-height: 1.2;
+  --text-heading--letter-spacing: 0.01em;
+  --text-heading--font-weight: 600;
 
-  /* Text Sizes - Headline LG Mobile */
-  --text-headline-lg-mobile: 32px;
-  --text-headline-lg-mobile--line-height: 40px;
-  --text-headline-lg-mobile--font-weight: 400;
+  /* Text Sizes - Script Accent */
+  --text-script: clamp(1.6rem, 4vw, 2.5rem);
+  --text-script--font-weight: 400;
 
-  /* Text Sizes - Body MD */
-  --text-body-md: 16px;
-  --text-body-md--line-height: 24px;
-  --text-body-md--font-weight: 400;
+  /* Text Sizes - Body */
+  --text-body: 19px;
+  --text-body--line-height: 1.7;
+  --text-body--font-weight: 500;
 
   /* Text Sizes - Label Caps */
-  --text-label-caps: 12px;
-  --text-label-caps--line-height: 16px;
-  --text-label-caps--letter-spacing: 0.1em;
-  --text-label-caps--font-weight: 500;
+  --text-label-caps: 14px;
+  --text-label-caps--letter-spacing: 0.18em;
+  --text-label-caps--font-weight: 600;
+
+  /* Override Tailwind default text sizes — scale up everything */
+  --text-xs: 14px;
+  --text-sm: 16px;
+  --text-base: 18px;
+  --text-lg: 20px;
+  --text-xl: 22px;
+  --text-2xl: 26px;
+  --text-3xl: 32px;
+  --text-4xl: 38px;
+  --text-5xl: 50px;
 
   /* Spacing */
   --spacing-margin-desktop: 80px;
@@ -65,19 +58,18 @@
   --spacing-unit: 8px;
 
   /* Border Radius */
-  --radius-sm: 0.25rem;
-  --radius-md: 0.5rem;
-  --radius-lg: 1rem;
-  --radius-xl: 1.5rem;
+  --radius-sm: 4px;
+  --radius-md: 8px;
+  --radius-lg: 12px;
   --radius-full: 9999px;
 }
 
 body {
   margin: 0;
   padding: 0;
-  background-color: #05070A;
-  color: #F8FAFC;
-  font-family: "Inter", sans-serif;
+  background-color: #090d1a;
+  color: #f5f0e8;
+  font-family: "Raleway", sans-serif;
 }
 
 * {
@@ -88,43 +80,69 @@ html {
   scroll-behavior: smooth;
 }
 
-.glass-card {
-  background: rgba(5, 7, 10, 0.4);
-  backdrop-filter: blur(24px);
-  border: 1px solid rgba(248, 250, 252, 0.1);
+.luxury-card {
+  background: rgba(0, 0, 0, 0.6);
+  border: 1px solid rgba(201, 151, 58, 0.2);
+  border-radius: 8px;
 }
 
-.luminous-button {
-  background-color: #adc6ff;
-  color: #002e6a;
-  box-shadow: 0 0 20px -5px #4DD0C8;
+.luxury-button {
+  background: transparent;
+  color: #c9973a;
+  border: 1px solid rgba(201, 151, 58, 0.4);
+  border-radius: 9999px;
+  padding: 0.625rem 1.5rem;
+  font-family: "Montserrat", sans-serif;
+  font-weight: 500;
+  font-size: 11px;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
   transition: all 0.3s ease;
 }
 
-.luminous-button:hover {
-  transform: scale(0.95);
-  box-shadow: 0 0 30px -2px #4DD0C8;
+.luxury-button:hover {
+  background: rgba(201, 151, 58, 0.1);
+  border-color: rgba(201, 151, 58, 0.6);
 }
 
-.starfield-bg {
+.gold-diamond {
+  color: rgba(201, 151, 58, 0.6);
+  font-size: 14px;
+  line-height: 1;
+}
+
+.star-scatter {
   background-image:
-    radial-gradient(1px 1px at 20px 30px, #F8FAFC, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 40px 70px, #F8FAFC, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 50px 160px, #F8FAFC, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 90px 40px, #F8FAFC, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 130px 80px, #F8FAFC, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 160px 120px, #F8FAFC, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 200px 50px, #F8FAFC, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 240px 180px, #F8FAFC, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 280px 90px, #F8FAFC, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 320px 200px, #F8FAFC, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 360px 30px, #F8FAFC, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 30px 220px, #F8FAFC, rgba(0,0,0,0)),
-    radial-gradient(2px 2px at 100px 280px, #F8FAFC, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 170px 310px, #F8FAFC, rgba(0,0,0,0)),
-    radial-gradient(1px 1px at 230px 250px, #F8FAFC, rgba(0,0,0,0));
+    radial-gradient(1px 1px at 10% 20%, rgba(201,151,58,0.3), transparent),
+    radial-gradient(1px 1px at 30% 50%, rgba(201,151,58,0.2), transparent),
+    radial-gradient(1.5px 1.5px at 55% 30%, rgba(201,151,58,0.3), transparent),
+    radial-gradient(1px 1px at 70% 70%, rgba(201,151,58,0.15), transparent),
+    radial-gradient(1px 1px at 85% 15%, rgba(201,151,58,0.25), transparent),
+    radial-gradient(1.5px 1.5px at 15% 80%, rgba(201,151,58,0.2), transparent),
+    radial-gradient(1px 1px at 45% 90%, rgba(201,151,58,0.15), transparent),
+    radial-gradient(1px 1px at 90% 55%, rgba(201,151,58,0.2), transparent),
+    radial-gradient(1px 1px at 60% 10%, rgba(201,151,58,0.3), transparent),
+    radial-gradient(1.5px 1.5px at 25% 40%, rgba(201,151,58,0.2), transparent),
+    radial-gradient(1px 1px at 75% 85%, rgba(201,151,58,0.15), transparent),
+    radial-gradient(1px 1px at 40% 60%, rgba(201,151,58,0.25), transparent);
   background-repeat: repeat;
-  background-size: 400px 400px;
+  background-size: 300px 300px;
+}
+
+.photo-frame {
+  position: relative;
+  border-radius: 8px;
+  border: 1px solid rgba(201, 151, 58, 0.25);
+  overflow: hidden;
+}
+
+.photo-frame::after {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(rgba(201, 151, 58, 0.06), rgba(0, 0, 0, 0.35));
+  pointer-events: none;
+  z-index: 1;
 }
 
 @keyframes float {
@@ -138,18 +156,18 @@ html {
 
 input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
-  height: 20px;
-  width: 20px;
+  height: 22px;
+  width: 22px;
   border-radius: 50%;
-  background: #4DD0C8;
-  box-shadow: 0 0 15px #4DD0C8;
+  background: #c9973a;
+  box-shadow: 0 0 18px rgba(201, 151, 58, 0.4);
   cursor: pointer;
-  margin-top: -8px;
+  margin-top: -9px;
 }
 
 input[type=range]::-webkit-slider-runnable-track {
   height: 4px;
-  background: #1E293B;
+  background: rgba(245, 240, 232, 0.1);
   border-radius: 2px;
 }
 
@@ -162,16 +180,28 @@ input[type=range] {
 
 input[type=range]::-moz-range-track {
   height: 4px;
-  background: #1E293B;
+  background: rgba(245, 240, 232, 0.1);
   border-radius: 2px;
 }
 
 input[type=range]::-moz-range-thumb {
-  height: 20px;
-  width: 20px;
+  height: 22px;
+  width: 22px;
   border-radius: 50%;
-  background: #4DD0C8;
-  box-shadow: 0 0 15px #4DD0C8;
+  background: #c9973a;
+  box-shadow: 0 0 18px rgba(201, 151, 58, 0.4);
   cursor: pointer;
   border: none;
+}
+
+@media (pointer: coarse) {
+  input[type=range]::-webkit-slider-thumb {
+    height: 28px;
+    width: 28px;
+    margin-top: -12px;
+  }
+  input[type=range]::-moz-range-thumb {
+    height: 28px;
+    width: 28px;
+  }
 }
