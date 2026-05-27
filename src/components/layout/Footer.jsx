@@ -16,17 +16,17 @@ export default function Footer() {
             <div className="flex-1 md:flex-none">
               <h4 className="text-[13px] font-medium text-gold-primary/50 uppercase tracking-[0.18em] mb-4 font-body">Khám phá</h4>
               <div className="flex flex-col gap-2 md:gap-2.5">
-                <a href="/#about" className="text-xs md:text-sm text-cream-white/35 hover:text-gold-primary/70 transition-colors font-body font-normal">Về Chúng Tôi</a>
+                <a href="/about" className="text-xs md:text-sm text-cream-white/35 hover:text-gold-primary/70 transition-colors font-body font-normal">Về Chúng Tôi</a>
                 <a href="/calendar" className="text-xs md:text-sm text-cream-white/35 hover:text-gold-primary/70 transition-colors font-body font-normal">Lịch Thiên Văn 2026</a>
-                <a href="/#experiences" className="text-xs md:text-sm text-cream-white/35 hover:text-gold-primary/70 transition-colors font-body font-normal">Hành Trình</a>
-                <a href="/#gallery" className="text-xs md:text-sm text-cream-white/35 hover:text-gold-primary/70 transition-colors font-body font-normal">Thư Viện</a>
+                <a href="/products" className="text-xs md:text-sm text-cream-white/35 hover:text-gold-primary/70 transition-colors font-body font-normal">Sản phẩm</a>
+                <a href="/starmap" className="text-xs md:text-sm text-cream-white/35 hover:text-gold-primary/70 transition-colors font-body font-normal">Bản Đồ Sao</a>
               </div>
             </div>
             <div className="flex-1 md:flex-none">
               <h4 className="text-[13px] font-medium text-gold-primary/50 uppercase tracking-[0.18em] mb-4 font-body">Liên hệ</h4>
               <div className="flex flex-col gap-2 md:gap-2.5 text-xs md:text-sm text-cream-white/35 font-body font-normal">
-                <span>Mũi Dinh, Ninh Thuận</span>
-                <a href="mailto:info@demngansao.vn" className="hover:text-gold-primary/70 transition-colors">info@demngansao.vn</a>
+                <span>Đại học Tôn Đức Thắng, HCM</span>
+                <a href="mailto:limewwsocute@gmail.com" className="hover:text-gold-primary/70 transition-colors">limewwsocute@gmail.com</a>
               </div>
             </div>
           </div>

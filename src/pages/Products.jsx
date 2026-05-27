@@ -5,12 +5,6 @@ import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 import Starfield from '../components/ui/Starfield'
 
-const highlights = [
-  { step: '01', stat: '3+', statLabel: 'LOẠI KÍNH', icon: 'tabler:telescope', label: 'Kính thiên văn thông minh', sub: 'Điều khiển qua tablet trong lều', gradient: 'linear-gradient(135deg,#1a1f2e,#2a1f10)' },
-  { step: '02', stat: '100%', statLabel: 'RIÊNG TƯ', icon: 'tabler:tent', label: 'Lều Glamping cao cấp', sub: 'Dome riêng tư, cách âm hoàn toàn', gradient: 'linear-gradient(135deg,#0d1f1a,#1a2d1f)' },
-  { step: '03', stat: '24/7', statLabel: 'HỖ TRỢ', icon: 'tabler:user-star', label: 'Hướng dẫn viên chuyên nghiệp', sub: 'Astro-guide suốt đêm quan sát', gradient: 'linear-gradient(135deg,#1a1520,#2a1a30)' },
-]
-
 function HeroSection() {
   return (
     <section className="relative min-h-screen w-full flex items-center justify-center overflow-hidden">
@@ -104,31 +98,6 @@ function ProductCard({ item }) {
   )
 }
 
-function ComparisonBar() {
-  return (
-    <div className="max-w-5xl mx-auto">
-      <div className="grid grid-cols-1 md:grid-cols-3 gap-0 rounded-[12px] overflow-hidden border border-gold-primary/10">
-        {highlights.map((h) => (
-          <div key={h.step} className="relative flex gap-4 p-5 md:p-6 lg:p-7 items-start" style={{ background: h.gradient }}>
-            <div className="flex flex-col items-center gap-2 shrink-0">
-              <span className="text-[28px] md:text-[32px] font-bold leading-none text-white/[0.06] font-display-serif select-none">{h.step}</span>
-              <Icon icon={h.icon} className="text-2xl md:text-3xl text-gold-primary" />
-            </div>
-            <div className="min-w-0">
-              <div className="flex items-baseline gap-2 mb-1">
-                <span className="text-[28px] md:text-[34px] font-bold text-gold-primary leading-none font-display-serif">{h.stat}</span>
-                <span className="text-[10px] font-semibold tracking-[0.15em] text-cream-white/30 uppercase font-body">{h.statLabel}</span>
-              </div>
-              <p className="text-sm md:text-[15px] text-cream-white font-medium leading-snug mb-0.5 font-body">{h.label}</p>
-              <p className="text-[12px] md:text-[13px] text-cream-white/35 leading-relaxed font-body font-medium">{h.sub}</p>
-            </div>
-          </div>
-        ))}
-      </div>
-    </div>
-  )
-}
-
 export default function Products() {
   return (
     <div className="relative min-h-screen">
@@ -162,16 +131,11 @@ export default function Products() {
               ))}
             </div>
 
-            {/* Comparison bar */}
-            <div className="mt-16 md:mt-24">
-              <ComparisonBar />
-            </div>
+            {/* ── CONTACT SECTION ── */}
           </div>
 
           <div className="absolute bottom-0 left-0 right-0 h-20 md:h-28 bg-gradient-to-t from-bg-deep-navy to-transparent pointer-events-none z-10" />
         </section>
-
-        {/* ── CONTACT SECTION ── */}
         <section className="relative py-24 md:py-36 px-5 md:px-10 lg:px-16 overflow-hidden">
           <div className="absolute inset-0" style={{ background: 'radial-gradient(ellipse at center, rgba(201,151,58,0.06), transparent 70%)' }} />
           <div className="max-w-3xl mx-auto text-center relative z-10">

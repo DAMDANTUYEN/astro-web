@@ -156,7 +156,7 @@ export default function AboutUs() {
               {/* 2. The Solution */}
               <div className="rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden">
                 <div className="relative" style={{ aspectRatio: '16/10' }}>
-                  <img src="https://images.unsplash.com/photo-1462331940025-496dfbfc7564?w=600&q=80" alt="" className="w-full h-full object-cover" />
+                  <img src="https://i.pinimg.com/1200x/a8/cf/f4/a8cff40d5b27b26704052bc5a6a04a21.jpg" alt="" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute bottom-4 left-4">
                     <span className="text-[10px] font-bold tracking-[0.2em] text-gold-primary/80 uppercase font-body bg-black/50 px-2.5 py-1 rounded-full backdrop-blur-sm">02</span>
@@ -174,7 +174,7 @@ export default function AboutUs() {
               {/* 3. The Experience */}
               <div className="rounded-2xl border border-white/5 bg-white/[0.02] overflow-hidden">
                 <div className="relative" style={{ aspectRatio: '16/10' }}>
-                  <img src="https://images.unsplash.com/photo-1506905925346-21bda4d32df4?w=600&q=80" alt="" className="w-full h-full object-cover" />
+                  <img src="https://i.pinimg.com/736x/90/2c/a2/902ca2734bdc0ba684889eb6eb058a7e.jpg" alt="" className="w-full h-full object-cover" />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/20 to-transparent" />
                   <div className="absolute bottom-4 left-4">
                     <span className="text-[10px] font-bold tracking-[0.2em] text-gold-primary/80 uppercase font-body bg-black/50 px-2.5 py-1 rounded-full backdrop-blur-sm">03</span>

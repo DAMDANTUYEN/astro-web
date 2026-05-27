@@ -1,4 +1,4 @@
-import { useCallback, useMemo } from 'react'
+import { useCallback, useMemo, useState, useEffect, useRef } from 'react'
 import { Icon } from '@iconify/react'
 
 const descriptions = [
@@ -8,6 +8,21 @@ const descriptions = [
 ]
 
 export default function BortleSlider({ value = 0, onChange }) {
+  const [showHint, setShowHint] = useState(true)
+  const interacted = useRef(false)
+
+  useEffect(() => {
+    const timer = setTimeout(() => setShowHint(false), 4000)
+    return () => clearTimeout(timer)
+  }, [])
+
+  const handleStart = useCallback(() => {
+    if (!interacted.current) {
+      interacted.current = true
+      setShowHint(false)
+    }
+  }, [])
+
   const t = value / 100
 
   const glowColor = useMemo(() => {
@@ -17,9 +32,10 @@ export default function BortleSlider({ value = 0, onChange }) {
 
   const handleInput = useCallback(
     (e) => {
+      handleStart()
       onChange(Number(e.target.value))
     },
-    [onChange]
+    [onChange, handleStart]
   )
 
   const bortleLevel = useMemo(() => {
@@ -67,15 +83,31 @@ export default function BortleSlider({ value = 0, onChange }) {
               </p>
             </div>
 
-            <input
-              type="range"
-              min="0"
-              max="100"
-              value={value}
-              onInput={handleInput}
-              className="w-full appearance-none bg-transparent cursor-pointer touch-pan-y"
-              style={{ accentColor: bortleLevel.color }}
-            />
+            <div className="relative">
+              <div className={`flex items-center justify-center gap-2 mb-3 transition-all duration-700 ${showHint ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-2 pointer-events-none'}`}>
+                <span className="text-gold-primary/60 text-[12px] font-semibold tracking-[0.15em] uppercase font-body animate-pulse">
+                  Kéo để khám phá
+                </span>
+                <Icon icon="tabler:hand-click" className="text-gold-primary/50 text-lg animate-bounce" />
+              </div>
+
+              <div className={`transition-all duration-700 ${showHint ? 'relative' : ''}`}>
+                {showHint && (
+                  <div className="absolute -inset-2 rounded-xl border-2 border-gold-primary/30 pointer-events-none animate-pulse z-10" />
+                )}
+                <input
+                  type="range"
+                  min="0"
+                  max="100"
+                  value={value}
+                  onInput={handleInput}
+                  onMouseDown={handleStart}
+                  onTouchStart={handleStart}
+                  className="w-full appearance-none bg-transparent cursor-pointer touch-pan-y"
+                  style={{ accentColor: bortleLevel.color }}
+                />
+              </div>
+            </div>
 
             <div className="mt-3 flex justify-between text-[11px] text-cream-white/25 font-body font-medium">
               <span>Ô nhiễm nặng</span>
