@@ -7,7 +7,7 @@ import {
   REGIONS,
   formatBortle,
   sortByBortle,
-} from '../data/starLocations'
+} from '../data/starlocations'
 import Navbar from '../components/layout/Navbar'
 import Footer from '../components/layout/Footer'
 import Starfield from '../components/ui/Starfield'
