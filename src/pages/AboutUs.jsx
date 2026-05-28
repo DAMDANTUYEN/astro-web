@@ -8,7 +8,7 @@ const founders = [
   { name: 'Minh Nhật', role: 'Technical & Site Lead', img: '/aboutus/nhat.jpg' },
   { name: 'Nguyệt Như', role: 'Experience & Content Lead', img: '/aboutus/nhu.jpg' },
   { name: 'Thủy Tiên', role: 'Experience & Content Lead', img: '/aboutus/tien.jpg' },
-  { name: 'Khánh Linh', role: 'Experience & Content Lead', img: '/aboutus/Linh.jpg' },
+  { name: 'Khánh Linh', role: 'Experience & Content Lead', img: '/aboutus/linh.jpg' },
 ]
 
 const coreValues = [
